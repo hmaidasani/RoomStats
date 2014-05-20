@@ -16,6 +16,9 @@ The api returns a json object with the face details. We use this count of faces 
 
 ## How to run
 After obtaining above requirements, run following commands to start the server:
+
 `npm install`
+
 `bower install`
+
 `node app.js`
