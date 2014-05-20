@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title= RoomStats
+
+    <!-- Sets initial viewport load and disables zooming  -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+
+    <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    link(rel='stylesheet', href='/css/style.css')
+    //- <!-- Include the compiled Ratchet CSS -->
+    link(rel='stylesheet', href='/bower_components/ratchet/dist/css/ratchet.min.css')
+    link(rel='stylesheet', href='/bower_components/ratchet/dist/css/ratchet-theme-ios.min.css')
+    //- <!-- Include the compiled Ratchet JS -->
+    script(src='/bower_components/ratchet/dist/js/ratchet.min.js')
+  body
+    block content

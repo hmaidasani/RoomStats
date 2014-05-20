@@ -1,0 +1,64 @@
+/*body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}*/
+
+.card span {
+	font-size: 96px;
+	line-height: 100px;
+}
+
+.graph {
+	/*float: left;*/
+	width: 100%;
+	/*height: 350px !important;*/
+	padding: 10px 20px;
+}
+
+.container {
+	box-sizing: border-box;
+	width: 100%;
+	/*height: 350px !important;*/
+	padding: 20px 15px 15px 15px;
+	margin: 5px auto 20px auto5
+	border: 1px solid #ddd;
+	background: #fff;
+	box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+	-o-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+	-ms-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+	-webkit-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.placeholder {
+	width: 600px !important;
+	height: 300px !important;
+	font-size: 14px;
+	line-height: 1.2em;
+}
+.flot-y-axis .flot-tick-label {
+	left:-10px !important;
+}
+.yaxisLabel {
+	top: 50%;
+	left: 0;
+	transform: rotate(-90deg);
+	-o-transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	-webkit-transform: rotate(-90deg);
+	transform-origin: 0 0;
+	-o-transform-origin: 0 0;
+	-ms-transform-origin: 0 0;
+	-moz-transform-origin: 0 0;
+	-webkit-transform-origin: 0 0;
+}
+.axisLabel {
+	position: absolute;
+	text-align: center;
+	font-size: 12px;
+}

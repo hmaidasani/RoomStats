@@ -1,0 +1,83 @@
+extends layout
+ 
+block content
+	|   <!-- Make sure all your bars are the first things in your <body> -->
+	|   <header class="bar bar-nav">
+	|     <h1 class="title">AV Williams 1st Floor TA Room</h1>
+	|   </header>
+	| 
+	|   <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
+	|   <div class="content">
+	|     <div class="segmented-control">
+	|       <a class="control-item active" href="#right-now">
+	|         Right Now
+	|       </a>
+	|       <a class="control-item" href="#last-hour">
+	|         Last Hour
+	|       </a>
+	|       <a class="control-item" href="#earlier-today">
+	|         Earlier Today
+	|       </a>
+	|       <a class="control-item" href="#historical">
+	|         Historical Statistics
+	|       </a>
+	|     </div>
+	|     <div class="card">
+	|       <span id="right-now" class="control-content active">#{count}</span>
+	|       <span id="last-hour" class="control-content">
+	.graph
+		.container
+			#placeholder1.placeholder(style='padding: 0px; position: relative;')
+	|		</span>
+	|       <span id="earlier-today" class="control-content">
+	.graph
+		.container
+			#placeholder2.placeholder(style='padding: 0px; position: relative;')
+	|		</span>
+	|       <span id="historical" class="control-content">4</span>
+	|     </div>
+	|   </div>
+
+	script(src='/bower_components/jquery/dist/jquery.min.js')
+	script(src='/bower_components/flot/jquery.flot.js')
+	script(src='/bower_components/flot/jquery.flot.time.js')
+	script(src='/bower_components/momentjs/moment.js')
+	script(src='js/socket.io.js')
+	script(type='text/javascript').
+		var socket = io.connect('http://localhost');
+		var options = {
+			grid: {
+				aboveData: false,
+				margin: {
+					top: 8,
+					bottom: 20,
+					//- left: 20
+				},
+			},
+			lines: {
+				show: true
+			},
+			points: {
+				show: false
+			},
+			yaxis: {tickLength:0}, 
+			xaxis: { mode: "time",minTickSize: [1, "hour"],
+				min: (new moment().subtract("hour", 1).toDate()),
+				max: (new moment().toDate()), timezone: "browser"
+			}
+		};
+		$.plot("#placeholder1", [[new moment().toDate(), 0]], options);
+		socket.on('data', function (data) {
+			$('#right-now').text(data.now);
+			var seriesAIn = [];
+			seriesAIn.push({
+				"label": "key",
+				"color": '#000000',
+				"data": data.hour
+			});
+			$.plot("#placeholder1", seriesAIn, options);
+
+			$.plot("#placeholder2", seriesAIn, options);
+		});
+
+		
