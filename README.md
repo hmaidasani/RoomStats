@@ -1,5 +1,5 @@
 # RoomStats
-An app that takes a webcam shot periodically and finds the number of people in the image.
+An app that takes a webcam snapshot periodically and finds the number of people in the image.
 
 ## Requirements
 1. npm and node.js
