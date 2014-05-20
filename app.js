@@ -32,6 +32,7 @@ app.get('/', routes.index);
 
 var moment = require('moment');
 var io = require('socket.io').listen(server.listen(app.get("port")));
+console.log('server running on port 3000 (localhost:3000)');
 
 io.sockets.on('connection', function (socket) {
 	console.log("connected");
